@@ -1,0 +1,15 @@
+{
+  "name": "grosscol-smartconnect_dns",
+  "version": "0.1.0",
+  "author": "grosscol",
+  "summary": "Isilon Smart Connect DNS Configuration",
+  "license": "Apache-2.0",
+  "source": "https://www.github.com/grosscol/smartconnect_dns.git",
+  "project_page": "https://www.github.com/grosscol/smartconnect_dns",
+  "issues_url": "https://www.github.com/grosscol/smartconnect_dns/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ],
+  "data_provider": null
+}
+
