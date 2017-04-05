@@ -42,7 +42,12 @@
 #
 # Copyright 2017 Your name here, unless otherwise noted.
 #
-class smartconnect_dns {
+class smartconnect_dns (
+  String cluster_dns_ip,
+  Array other_dns_ips
+) {
+  include ::stdlib
 
+  ensure_packages(['bind9'], {'ensure' => 'present'})
 
 }
