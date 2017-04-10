@@ -46,12 +46,12 @@ class smartconnect_dns (
   require smartconnect_dns::prereqs
 
   # Get nameservers array for forwarders list and resolv_conf
-  #   Use argument provided ips or try a hiera lookup for the resolv_conf resource
+  #   Try hiera lookup if there aren't any parameter provided ips 
   if empty($other_dns_ips) {
-    $std_nameservers = $other_ns_ips
+    $std_nameservers = lookup("resolv_conf::nameservers", Array, 'first', [])
   }
   else {
-    $std_nameservers = lookup("resolv_conf::nameservers", Array, 'first', [])
+    $std_nameservers = $other_ns_ips
   }
 
   # Prepend localhost to nameservers array for use with resolv_conf
