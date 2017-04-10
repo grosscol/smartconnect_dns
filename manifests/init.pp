@@ -66,16 +66,24 @@ class smartconnect_dns (
   # Static BIND9 config files to configure named to only resolve smart connect requests
   file { 'named.conf':
     path => '/etc/bind/named.conf',
-    source => 'puppet:///modules/smartconnect_dns/named.conf'
+    source => 'puppet:///modules/smartconnect_dns/named.conf',
+    notify => Service['bind9']
   }
 
   # Template configs for smart connect zone
   file { 'named.conf.local':
     path => '/etc/bind/named.conf.local',
-    content => template('smartconnect_dns/named.conf.local.erb')
+    content => template('smartconnect_dns/named.conf.local.erb'),
+    notify => Service['bind9']
   }
   file { 'named.conf.options':
     path => '/etc/bind/named.conf.options',
-    content => template('smartconnect_dns/named.conf.options.erb')
+    content => template('smartconnect_dns/named.conf.options.erb'),
+    notify => Service['bind9']
+  }
+
+  # Service for bind9 to be notified and restarted when configs change.
+  service { 'bind9':
+    ensure => running
   }
 }

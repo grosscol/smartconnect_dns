@@ -17,7 +17,7 @@ options {
   // Forward requests to the standard nameservers
   forward only;
   forwarders { 
-  <% if(@std_nameservers) %>
+  <% unless @std_nameservers.empty? %>
     <%= @std_nameservers.join('; ') + ';' %>
   <% end %>
   };
