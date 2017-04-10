@@ -38,9 +38,9 @@
 # Author Name <grosscol@gmail.com>
 #
 class smartconnect_dns (
-  String domain,
-  String nameserver_ip,
-  Array other_ns_ips = []
+  String $domain,
+  String $nameserver_ip,
+  Array $other_ns_ips = []
 ) {
   include ::stdlib
   require smartconnect_dns::prereqs
