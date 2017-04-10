@@ -45,7 +45,7 @@ class smartconnect_dns (
   include ::stdlib
   require smartconnect_dns::prereqs
 
-  # Get nameservers array for resolv_conf
+  # Get nameservers array for forwarders list and resolv_conf
   #   Use argument provided ips or try a hiera lookup for the resolv_conf resource
   if empty($other_dns_ips) {
     $std_nameservers = $other_ns_ips
@@ -55,7 +55,6 @@ class smartconnect_dns (
   }
 
   # Prepend localhost to nameservers array for use with resolv_conf
-  $std_nameservers = lookup("resolv_conf::nameservers", Array, 'first', [])
   $mod_nameservers = concat( ['127.0.0.1'], $std_nameservers)
 
   # Use module specific resolv_conf config
