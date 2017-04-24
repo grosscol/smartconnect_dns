@@ -1,6 +1,6 @@
 {
   "name": "grosscol-smartconnect_dns",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "grosscol",
   "summary": "Isilon Smart Connect DNS Configuration",
   "license": "Apache-2.0",

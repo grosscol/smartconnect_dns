@@ -47,7 +47,7 @@ class smartconnect_dns (
 
   # Get nameservers array for forwarders list and resolv_conf
   #   Try hiera lookup if there aren't any parameter provided ips 
-  if empty($other_dns_ips) {
+  if empty($other_ns_ips) {
     $std_nameservers = lookup("resolv_conf::nameservers", Array, 'first', [])
   }
   else {
